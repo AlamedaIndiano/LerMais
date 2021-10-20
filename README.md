@@ -1,4 +1,4 @@
-# Chat de Conversas
+# Ler Mais
 
 ## Descrição do Projeto
 Ler mais é um projeto sem fins lucrativos que visa arrecadar e doar livros em parques e praças da grande São Paulo.
