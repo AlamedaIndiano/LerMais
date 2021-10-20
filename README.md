@@ -40,7 +40,7 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 Dentro do arquivo Back-End abra o Terminal e execute os seguintes comandos para instalar todas as dependências:
 
 #### Clone este repositório
-- git clone <https://github.com/Alameda-Indiano/Chate-De-Conversas.git>
+- git clone <https://github.com/AlamedaIndiano/ProjetoVidaECarreira.git>
 
 #### Vá para a pasta Back-End
 - cd back-end
@@ -70,7 +70,7 @@ No terminal execute os comandos:
 ### Rodando o Front-End (Interface)
 
 #### Clone este repositório
-- git clone <https://github.com/Alameda-Indiano/Chate-De-Conversas.git>
+- git clone <https://github.com/AlamedaIndiano/ProjetoVidaECarreira.git>
 
 #### Vá para a pasta Front-End
 - cd front-end
