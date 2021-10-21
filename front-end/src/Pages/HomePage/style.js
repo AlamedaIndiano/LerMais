@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Imagem from "../../imagens/ImagemHomePage.jpg";
+import Logo from "../../imagens/logo.png";
 
 export const Container = styled.div`
     width: 100%;
@@ -9,6 +10,17 @@ export const Container = styled.div`
             margin: 0;
             box-sizing: border-box;
         }
+`;
+
+export const LogoImage = styled.div`
+    background-image: url(${Logo});
+    background-size: cover;
+    object-fit: cover;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    margin: -10px 10px;
+    padding: 0;
 `;
 
 export const ImagemDeFundo = styled.div`
@@ -32,6 +44,7 @@ export const ContainerTextos = styled.div`
             margin-bottom:  15px;
             font-size: 35px;
             font-weight: 600;
+            margin-top: 80px;
         }
         p {
             margin-left: 25px;
@@ -43,6 +56,7 @@ export const ContainerTextos = styled.div`
 export const ContainerButons = styled.div`
     width: 45%;
     padding-left: 5%;
+    margin-top: 40px;
     height: 40vh;    
     display: flex;
     flex-wrap: wrap;

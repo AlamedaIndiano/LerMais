@@ -9,6 +9,8 @@ import CadastroStep3 from "./Pages/Forms/Cadastro/CadastroStep3";
 import LoginStep1 from "./Pages/Forms/Login/LoginStep1";
 import LoginStep2 from "./Pages/Forms/Login/LoginStep2";
 
+import { Info_LerMais } from "./Pages/Info_LerMais";
+
 export const Router = () => {
     return(
         <BrowserRouter>
@@ -21,6 +23,8 @@ export const Router = () => {
 
                 <Route path="/LoginStep1" component={LoginStep1} />
                 <Route path="/LoginStep2" component={LoginStep2} />
+
+                <Route path="/Info_LerMais" component={Info_LerMais} />
             </Switch>
         </BrowserRouter>
     );

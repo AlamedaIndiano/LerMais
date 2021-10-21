@@ -15,6 +15,7 @@ export const HomePage = () => {
     return(
         <Css.Container>
             <Css.ImagemDeFundo>
+                <Css.LogoImage />
                 <Css.ContainerTextos>
                     <h1>Ler Mais</h1>
                     <p>Ler mais é um projeto sem fins lucrativos que visa arrecadar e doar livros em parques e praças da grande São Paulo. Cadastre-se e saiba mais!</p>

@@ -1,4 +1,4 @@
-# Chat de Conversas
+# Ler Mais
 
 ## Descrição do Projeto
 Ler mais é um projeto sem fins lucrativos que visa arrecadar e doar livros em parques e praças da grande São Paulo.
@@ -40,7 +40,11 @@ Além disto é bom ter um editor para trabalhar com o código como [VSCode](http
 Dentro do arquivo Back-End abra o Terminal e execute os seguintes comandos para instalar todas as dependências:
 
 #### Clone este repositório
-- git clone <https://github.com/Alameda-Indiano/Chate-De-Conversas.git>
+No terminal execute os comandos:
+
+- git init 
+
+- git pull <https://github.com/AlamedaIndiano/ProjetoVidaECarreira.git>
 
 #### Vá para a pasta Back-End
 - cd back-end
@@ -67,10 +71,46 @@ No terminal execute os comandos:
 #### Para iniciar o projeto execute:
 - npm start
 
+### Criando o Banco de Dados
+Dentro do MYSQL crie a seguinte conexão:
+
+- HostName: localhost
+
+- Port: 3306
+
+- UserName: root
+
+- Password: root
+
+#### Crie um banco de dados com as seguintes configurações:
+
+- Nome do Banco de Dados: lermais
+
+- DEFAULT CHARACTER SET: utf8mb4 
+
+- COLLATE: utf8mb4_unicode_ci
+
+#### ATENÇÃO!
+Os dados HostName, Port, UserName, Password e Nome do Banco de Dados podem ser alterados para os de sua escolha, mas para isso você deverá alterar algumas informações da API.
+
+#### Acesse o caminho: 
+- back-end --> Models --> db.js 
+
+#### Altere os dados da conexão:
+
+- const conexão = new Sequelize('Nome do Banco de Dados', 'UserName', 'Password', {
+    host: 'HostName',
+    dialect: 'mysql'
+});
+
 ### Rodando o Front-End (Interface)
 
 #### Clone este repositório
-- git clone <https://github.com/Alameda-Indiano/Chate-De-Conversas.git>
+No terminal execute os comandos:
+
+- git init 
+
+- git pull <https://github.com/AlamedaIndiano/ProjetoVidaECarreira.git>
 
 #### Vá para a pasta Front-End
 - cd front-end

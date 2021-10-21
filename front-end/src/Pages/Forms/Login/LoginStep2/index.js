@@ -30,7 +30,7 @@ const LoginStep2 = () => {
             await api.post('/Validar_Password', {state}, {Headers})
             .then((response) => {
                 if(response.data.erro !== true) {
-                    History.push('/')
+                    History.push('/Info_LerMais')
                 } else {
                     setDigiteSenha(response.data.MensagemLogin)
                     setColorErro('#c40000');
