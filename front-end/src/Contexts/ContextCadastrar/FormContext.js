@@ -9,6 +9,10 @@ const DadosIniciais = {
     name: '',
     email: '',
     senha: '',
+    admin: false,
+    refresh: false,
+    modal: false,
+    modelON: false
 };
 
 export const Actions = {
@@ -16,6 +20,10 @@ export const Actions = {
     setName: 'setName',
     setEmail: 'setEmail',
     setSenha: 'setSenha',
+    setAdmin: 'setAdmin',
+    setRefresh: 'setRefresh',
+    setModal: 'setModal',
+    setModelON: 'setModelON'
 };
 
 const FormRedux = (state, action) => {
@@ -28,6 +36,14 @@ const FormRedux = (state, action) => {
             return {...state, email: action.payload};
         case Actions.setSenha: 
             return {...state, senha: action.payload};
+        case Actions.setAdmin: 
+            return {...state, admin: action.payload};
+        case Actions.setRefresh: 
+            return {...state, refresh: action.payload};
+        case Actions.setModal: 
+            return {...state, modal: action.payload};
+        case Actions.setModelON: 
+            return {...state, modelON: action.payload};
         default: 
             return state;
     };

@@ -60,13 +60,17 @@ No terminal execute os comandos:
 
 - npm install --save-dev nodemon
 
-- npm install cors 
+- npm install --save cors 
 
 - npm install socket.io
 
 - npm install --save sequelize
 
 - npm install --save mysql2
+
+- npm install --save multer
+
+- npm install --save fs
 
 #### Para iniciar o projeto execute:
 - npm start

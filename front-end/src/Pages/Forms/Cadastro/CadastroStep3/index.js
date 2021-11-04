@@ -33,7 +33,12 @@ const CadastroStep3 = () => {
             }
 
             await api.post('/NewUser', {state}, {Headers})
-            .then((response) => {
+            .then(() => {
+                dispatch({
+                    type: "setSenha",
+                    payload: ""
+                });
+
                 History.push('/LoginStep1')
             }).catch(() => {
                 const APIoff = ({
@@ -89,7 +94,7 @@ const CadastroStep3 = () => {
         if (state.email === '' || state.name === ''){
             History.push("/CadastroStep2");
         };
-    }, []);
+    }, [History, state.email, state.name, dispatch]);
 
     const TextErro = {
         color: `${ColorErro}`

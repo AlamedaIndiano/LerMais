@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import * as Css from "../style";
+import * as Css from "./style";
 import { useHistory } from "react-router-dom";
-import { useForm } from "../../../../Contexts/ContextCadastrar/FormContext";
+import { useForm } from "../../Contexts/ContextCadastrar/FormContext";
 import { MdVisibilityOff, MdVisibility } from "react-icons/md";
 
-import { Theme } from "../../../../Components/Theme/Login";
-import { api } from "../../../../Config/api";
+import { Theme } from "../../Components/Theme/Login";
+import { api } from "../../Config/api";
 
 const LoginStep2 = () => {
 
@@ -27,13 +27,22 @@ const LoginStep2 = () => {
                 'Content-Type': 'application/json'
             }
 
-            await api.post('/Validar_Password', {state}, {Headers})
+            await api.post('/Validar_Password_Admin', {state}, {Headers})
             .then((response) => {
                 if(response.data.erro !== true) {
-                    History.push('/Info_LerMais')
+                    dispatch({
+                        type: "setAdmin",
+                        payload: true
+                    });
+                    
+                    History.push('/NewLivros');
                 } else {
                     setDigiteSenha(response.data.MensagemLogin)
                     setColorErro('#c40000');
+                    dispatch({
+                        type: "setAdmin",
+                        payload: false
+                    });
                 };
             }).catch(() => {
                 const APIoff = ({
@@ -96,7 +105,7 @@ const LoginStep2 = () => {
         <Theme>
             <Css.Container>
                 <p>Passo 2/2</p>
-                <h1>Digite sua senha</h1>
+                <h1>Você está fazendo login como admin!</h1>
                 <p>Preencha o campo a baixo com sua senha.</p>
 
                 <hr />

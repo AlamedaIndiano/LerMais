@@ -14,7 +14,7 @@ const CadastroStep2 = () => {
 
     const ProxímaStep = async () => {
 
-        const EmailValidar = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const EmailValidar = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         
         if(state.email !== '' && EmailValidar.test(String(state.email).toLowerCase()) === true){
             
@@ -25,7 +25,21 @@ const CadastroStep2 = () => {
             await api.post('/Validar_Email', {state}, {Headers})
             .then((response) => {
                 if(response.data.erro !== true) {
-                    History.push('/CadastroStep3')
+                    const Email_Admin = async () => {
+                        api.post("/Validar_Email_Admin", {state}, {Headers})
+                        .then((response) => {
+                            if(response.data.erro !== true){
+                                History.push('/CadastroStep3');
+                            } else {
+                                setDigiteEmail(response.data.MensagemLoginErro);
+                                setColorErro('#c40000');
+                            };
+                        }).catch(() => {
+
+                        });
+                    };
+
+                    Email_Admin();
                 } else {
                     setDigiteEmail(response.data.MensagemCadastro)
                     setColorErro('#c40000');
@@ -57,7 +71,7 @@ const CadastroStep2 = () => {
         if (state.name === ''){
             History.push("CadastroStep1");
         };
-    }, []);
+    }, [History, dispatch, state.name]);
 
     const TextErro = {
         color: `${ColorErro}`
