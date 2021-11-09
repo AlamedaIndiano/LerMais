@@ -13,7 +13,7 @@ import LoginStep2Admin from "./Admin/LoginStep2Admin";
 import { NewLivros } from "./Admin/Upload/Form_Upload_NewLivros";
 import { DeleteLivros } from "./Admin/Upload/Form_Delete_Livros";
 
-import { Slider } from "./Components/Slider";
+import { Site } from "./Pages/Site";
 
 export const Router = () => {
     return(
@@ -31,8 +31,8 @@ export const Router = () => {
                 <Route path="/LoginStep2Admin" component={LoginStep2Admin}/>
                 <Route path="/NewLivros" component={NewLivros}/>
                 <Route path="/DeleteLivros" component={DeleteLivros}/>
-                
-                <Route path="/Componentes" component={Slider}/>
+
+                <Route path="/Site" component={Site} />
             </Switch>
         </BrowserRouter>
     );

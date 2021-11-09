@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     width: 100vw;
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
 `;
 
 export const Slider = styled.div`
@@ -16,6 +16,7 @@ export const Slider = styled.div`
 export const ItensSlider = styled.div`
     width: 100vw;
     height: inherit;
+    overflow-x: hidden;
     object-fit: cover;
     background-size: cover;
     background-position: center;
@@ -29,19 +30,21 @@ export const ItensSlider = styled.div`
             font-size: 4rem;
             color: #fff;
             text-shadow: 2px 3px 6px black;
+            margin-bottom: -10px;
         }
     p {
         font-weight: 500;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
         color: #fff;
         text-shadow: 2px 3px 6px black;
+        margin-bottom: -10px;
     }
 `;
 
 export const ContainerBtnTransition = styled.div`
     width: 100%;
     height: 100%;
-    position: fixed;
+    position: absolute;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -69,22 +72,22 @@ export const ConteinerSaibaMais = styled.div`
         color: #fff;
         border-bottom: solid 2px #fff;
         text-shadow: 2px 2px 4px black;
+        margin-top: 10rem;
     }
 
     div {
         color: #fff;
-        font-size: 1.7rem;
-        font-weight: 500;
-        text-shadow: 2px 3px 6px black;
+        font-size: 1.8rem;
+        text-shadow: 2px 3px 3px black;
         animation: icon 3s linear infinite;
-        margin-top: -12px;
+        margin-top: 15px;
         & {
             @keyframes icon {
                 0% {
                     transform: translateY(0);
                 }
                 50% {
-                    transform: translateY(35px);
+                    transform: translateY(30px);
                 }
                 100% {
                     transform: translateY(0px);

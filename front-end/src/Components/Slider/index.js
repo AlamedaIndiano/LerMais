@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import * as Css from "./style";
+import { api } from "../../Config/api";
 
 import { MdChevronLeft, MdChevronRight, MdSouth} from "react-icons/md";
 
@@ -11,6 +12,9 @@ export const Slider = () => {
 
     const [ newMargin, setNewMargin ] = useState(0);
 
+    const [ dados_sliders, setDados_sliders ] = useState([]);
+    const [ url, setUrl ] = useState("");
+
     const Transition_Right = useCallback(() => {
         current_sliders ++;
 
@@ -21,11 +25,11 @@ export const Slider = () => {
         updateMargin();
     }, []);
 
-    /*useEffect(() => {
+    useEffect(() => {
         setInterval(()=>{
             Transition_Right();
         }, [8000])       
-    }, [Transition_Right]);*/
+    }, [Transition_Right]);
 
 
     const Slider_Transition = {
@@ -47,6 +51,24 @@ export const Slider = () => {
         setNewMargin(current_sliders);
     };
 
+    const Buscar_Dados_Sliders = async () => {
+        await api.get('/Dados_Sliders')
+        .then((reponse) => {
+            setDados_sliders(reponse.data.slider);
+            setUrl(reponse.data.url);
+        }).catch((err) => {
+            if(err.reponse){
+                console.log(err.response)
+            }else{
+                console.log("Não foi possível se comunicar com os servidores! Por favor, tente novamente mais tarde.");
+            };
+        });
+    };
+
+    useEffect(() => {
+        Buscar_Dados_Sliders();
+    }, []);
+
     return(
         <Css.Container>
             <Css.ContainerBtnTransition>
@@ -55,14 +77,16 @@ export const Slider = () => {
             </Css.ContainerBtnTransition>
 
             <Css.Slider style={Slider_Transition}>
-                <Css.ItensSlider style={{backgroundImage: `url()`}} >
-                    <h1>Museu de Arte de São Paulo (Masp)</h1>
-                    <p>Av. Paulista, 1578 - Bela Vista, São Paulo - SP, 01310-200</p>
-                    <Css.ConteinerSaibaMais>
-                        <p>Saiba Mais</p>
-                        <div><MdSouth/></div>
-                    </Css.ConteinerSaibaMais>
-                </Css.ItensSlider>
+                {dados_sliders.map((dados) => (
+                    <Css.ItensSlider key={dados.id} style={{backgroundImage: `url(${url}${dados.image})`}} >
+                        <h1>{dados.titulo}</h1>
+                        <p>{dados.local}</p>
+                        <Css.ConteinerSaibaMais>
+                            <p>Saiba Mais</p>
+                            <div><MdSouth/></div>
+                        </Css.ConteinerSaibaMais>
+                    </Css.ItensSlider>
+                ))}
             </Css.Slider>
         </Css.Container>
     );

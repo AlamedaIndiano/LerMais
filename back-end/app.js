@@ -11,6 +11,7 @@ const Livros = require('./Models/Livros');
 const UploadSite = require('./middlewares/Upload_Imagens');
 const Imagens = require('./Models/Imagens');
 const Sliders = require('./Models/Slider');
+const Locais = require('./Models/Locais');
 
 app.use(express.json());
 
@@ -304,7 +305,62 @@ app.get('/Pesquisar_Livros/:titulo', async (req, res) => {
                 mensagem: "Erro: Nenhuma imagem encontrada!"
             });
         })
-    );
-    
-    
+    ); 
+});
+
+app.post('/Cadastrar_Slider', async (req, res) => {
+    const Dados = req.body
+
+    const New_Slider = {
+        titulo: `${Dados.titulo}`, 
+        local: `${Dados.local}`,
+        image: `${Dados.image}`
+    }
+
+    await Sliders.create(New_Slider)
+    .then((response) => {
+        return res.status(200).json({
+            erro: false,
+            mensagem: "Dados do Slider Cadastrado com Sucesso",
+            dados_cadastrados: response
+        });
+    }).catch(() => {
+        return res.status(400).json({
+            erro: true,
+            mensagem: "Não foi possível cadastrar os dados do Slider!"
+        });
+    });
+});
+
+app.get('/Dados_Sliders', async (req, res) => {
+    await Sliders.findAll()
+    .then((response) => {
+        return res.status(200).json({
+            erro: false,
+            slider: response,
+            url: "http://localhost:8080/files/slider/"
+        });
+    }).catch(() => {
+        return res.status(400).json({
+            erro: true,
+            mensagem: "ERRO! Nenhum slider cadastrado!"
+        });
+    });
+});
+
+app.get('/Dados_Locais_Evento', async (req, res) => {
+    await Locais.findAll()
+    .then((response) => {
+        return res.json({
+            erro: false,
+            url_image: "http://localhost:8080/files/locais/",
+            url_mapa: "https://www.google.com/maps/",
+            Novo_local: response
+        });
+    }).catch(() => {
+        return res.status(400).json({
+            erro: true,
+            mensagem: "Nenhum dado encontrado!"
+        });
+    });
 });
