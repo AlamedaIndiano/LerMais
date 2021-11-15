@@ -9,6 +9,12 @@ import CadastroStep3 from "./Pages/Forms/Cadastro/CadastroStep3";
 import LoginStep1 from "./Pages/Forms/Login/LoginStep1";
 import LoginStep2 from "./Pages/Forms/Login/LoginStep2";
 
+import LoginStep2Admin from "./Admin/LoginStep2Admin";
+import { NewLivros } from "./Admin/Upload/Form_Upload_NewLivros";
+import { DeleteLivros } from "./Admin/Upload/Form_Delete_Livros";
+
+import { Site } from "./Pages/Site";
+
 export const Router = () => {
     return(
         <BrowserRouter>
@@ -21,6 +27,12 @@ export const Router = () => {
 
                 <Route path="/LoginStep1" component={LoginStep1} />
                 <Route path="/LoginStep2" component={LoginStep2} />
+
+                <Route path="/LoginStep2Admin" component={LoginStep2Admin}/>
+                <Route path="/NewLivros" component={NewLivros}/>
+                <Route path="/DeleteLivros" component={DeleteLivros}/>
+
+                <Route path="/Site" component={Site} />
             </Switch>
         </BrowserRouter>
     );

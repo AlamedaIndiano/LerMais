@@ -14,7 +14,7 @@ const CadastroStep2 = () => {
 
     const ProxímaStep = async () => {
 
-        const EmailValidar = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const EmailValidar = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         
         if(state.email !== '' && EmailValidar.test(String(state.email).toLowerCase()) === true){
             
@@ -25,10 +25,24 @@ const CadastroStep2 = () => {
             await api.post('/Validar_Email', {state}, {Headers})
             .then((response) => {
                 if(response.data.erro === true) {
-                    History.push('/LoginStep2')
+                    History.push('/LoginStep2');
                 } else {
-                    setDigiteEmail(response.data.MensagemLogin)
-                    setColorErro('#c40000');
+                    const Admin = async () => {
+                        await api.post("/Validar_Email_Admin", {state}, {Headers})
+                        .then((response) => {
+                            if(response.data.erro === true){
+                                History.push('/LoginStep2Admin');
+                            } else {
+                                setDigiteEmail(response.data.MensagemLogin);
+                                setColorErro('#c40000');
+                            };
+                        }).catch(() => {
+                            setDigiteEmail("Tente mais tarde!");
+                            setColorErro('#c40000');
+                        });
+                    };
+
+                    Admin();
                 };
             });
 
@@ -39,6 +53,11 @@ const CadastroStep2 = () => {
     };
 
     const VoltarStep = () => {
+        dispatch({
+            type: "setEmail",
+            payload: ""
+        });
+
         History.push("/");
     };
 
@@ -54,7 +73,7 @@ const CadastroStep2 = () => {
             type: "setStep",
             payload: 1
         });
-    }, []);
+    }, [dispatch]);
 
     const TextErro = {
         color: `${ColorErro}`

@@ -31,6 +31,11 @@ const CadastroStep1 = () => {
     };
 
     const VoltarStep = () => {
+        dispatch({
+            type: "setEmail",
+            payload: ""
+        });
+
         History.push("/");
     };
 
@@ -46,7 +51,7 @@ const CadastroStep1 = () => {
             type: "setStep",
             payload: 1
         });
-    }, []);
+    }, [dispatch]);
 
     const TextErro = {
         color: `${ColorErro}`

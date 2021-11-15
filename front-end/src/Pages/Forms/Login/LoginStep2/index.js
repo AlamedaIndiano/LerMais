@@ -30,7 +30,7 @@ const LoginStep2 = () => {
             await api.post('/Validar_Password', {state}, {Headers})
             .then((response) => {
                 if(response.data.erro !== true) {
-                    History.push('/')
+                    History.push('/Site')
                 } else {
                     setDigiteSenha(response.data.MensagemLogin)
                     setColorErro('#c40000');
@@ -78,7 +78,7 @@ const LoginStep2 = () => {
         if(state.email === ''){
             History.push('/LoginStep1')
         };
-    }, []);
+    }, [History, dispatch, state.email]);
 
     const TextErro = {
         color: `${ColorErro}`
@@ -97,7 +97,7 @@ const LoginStep2 = () => {
             <Css.Container>
                 <p>Passo 2/2</p>
                 <h1>Digite sua senha</h1>
-                <p>Preencha o campo a baixo com sua nova senha.</p>
+                <p>Preencha o campo a baixo com sua senha.</p>
 
                 <hr />
 
@@ -121,7 +121,7 @@ const LoginStep2 = () => {
                 </label>
 
                 <Css.Voltar onClick={VoltarStep}>Voltar</Css.Voltar>
-                <Css.Próximo onClick={ProxímaStep}>Finalizar Cadastro</Css.Próximo>
+                <Css.Próximo onClick={ProxímaStep}>Realizar Login</Css.Próximo>
             </Css.Container>
         </Theme>
     );

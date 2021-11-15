@@ -1,5 +1,7 @@
 import style from "styled-components";
 
+import Logo from "../../../imagens/logo.png";
+
 export const Container = style.div`
     background-color: #79B4A9;
     color: #fff; 
@@ -12,6 +14,17 @@ export const Area = style.div`
     max-width: 980px;
     min-height: 100vh; 
     margin: auto;
+`;
+
+export const LogoImage = style.div`
+    background-image: url(${Logo});
+    background-size: cover;
+    object-fit: cover;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    margin: -10px -140px;
+    padding: 0;
 `;
 
 export const Steps = style.div`

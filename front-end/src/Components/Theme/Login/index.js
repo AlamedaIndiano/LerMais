@@ -8,6 +8,7 @@ export const Theme = ({ children }) => {
     return(
         <Css.Container>
             <Css.Area>
+                <Css.LogoImage/>
                 <Header />
                 <Css.Steps>
                     <Css.Sidebar>
