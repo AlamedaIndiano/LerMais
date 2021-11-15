@@ -13,7 +13,7 @@ const Livros = db.define("Livros", {
         allowNull: false
     },
     descricao: {
-        type: sequelize.STRING,
+        type: sequelize.STRING(1000),
         allowNull: false
     },
 });
