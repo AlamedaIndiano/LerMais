@@ -15,6 +15,9 @@ import { DeleteLivros } from "./Admin/Upload/Form_Delete_Livros";
 
 import { Site } from "./Pages/Site";
 
+import { Livros_Disponiveis } from "./Components/LivrosDisponiveis";
+import { Form_Contato } from "./Components/FormContato";
+
 export const Router = () => {
     return(
         <BrowserRouter>
@@ -33,6 +36,9 @@ export const Router = () => {
                 <Route path="/DeleteLivros" component={DeleteLivros}/>
 
                 <Route path="/Site" component={Site} />
+
+                <Route path="/Livros_Disponiveis" component={Livros_Disponiveis}/>
+                <Route path="/Form_Contato" component={Form_Contato}/>
             </Switch>
         </BrowserRouter>
     );

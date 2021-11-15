@@ -4,7 +4,7 @@
 Ler mais é um projeto sem fins lucrativos que visa arrecadar e doar livros em parques e praças da grande São Paulo.
 
 <h4 text-align="center"> 
-	🚧  LerMais 🚀 Em construção...  🚧
+	LerMais 🚀 Concluído 
 </h4>
 
 ### Features
@@ -12,11 +12,11 @@ Ler mais é um projeto sem fins lucrativos que visa arrecadar e doar livros em p
 - [x] Home Page; 
 - [x] Tela de Cadastro & Login de Usuários; 
 - [x] Validação de Usuários;
-- [ ] Página inicial com informações sobre o projeto;
-- [ ] Informações de locais e datas;
-- [ ] Formulário para contato;
-- [ ] Tela de livros disponíveis;
-- [ ] Tela Admin;
+- [x] Página inicial com informações sobre o projeto;
+- [x] Informações de locais e datas;
+- [x] Formulário para contato;
+- [x] Tela de livros disponíveis;
+- [x] Tela Admin;
 
 ### 🛠 Tecnologias
 
