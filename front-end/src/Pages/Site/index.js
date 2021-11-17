@@ -8,6 +8,8 @@ import { Menu } from "../../Components/Menu";
 import { Locais } from "../../Components/Locais";
 import { FormContato } from "../../Components/FormContato";
 
+import dsa from "./dsa.jpg";
+
 export const Site = () => {
     return(
         <Css.Container>
@@ -20,7 +22,13 @@ export const Site = () => {
                     <Css.Info>
                         <p>Com o aumento do valor de alimentos, produtos de higiene basica e remédios, torna-se cada vez mais dificil adquirir um bom livro. Pensando nisso, nós do ler mais, tivemos a ideia de criar este Projeto Social que, de forma simples, vai possibilitar uma maior democratização e acessibilidade à Leitura para todos!</p>
                     </Css.Info>
-                    imagem aqui
+                    <Css.ContainerImagem style={{backgroundImage: `url(${dsa})`}}>
+                        <Css.ContainerDescricaoSteps>
+                            <div><p>Acesse o site, pesquise por um livro de seu interesse e o local e data do próximo evento</p></div>
+                            <div><p>Vá até o parque onde está ocorrendo o evento</p></div>
+                            <div><p>Doe ou pegue um livro gratuitamente</p></div>
+                        </Css.ContainerDescricaoSteps>
+                    </Css.ContainerImagem>
                     <Css.Frase>
                         <p>“A leitura é uma fonte inesgotável de prazer, mas, por incrível que pareça, a quase totalidade não sente esta sede”. </p>
                         <p>- Carlos Drummond de Andrade</p>
