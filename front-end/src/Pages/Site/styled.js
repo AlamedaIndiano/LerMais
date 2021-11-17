@@ -56,6 +56,31 @@ export const Info = styled.div`
     }
 `;
 
+export const ContainerImagem = styled.div`
+    width: 75vw;
+    height: 40vh;
+    background-repeat: no-repeat;
+    background-size: 100% 100%, contain;
+    box-shadow: 0.5px 0.5px 6px black;
+`;
+
+export const ContainerDescricaoSteps = styled.div`
+    width: 100%;
+    height: 95%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    div {
+        width: 200px;
+    }
+    p {
+        font-size: 14px;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px #d7e6f3;
+        color: #35434f;
+    }
+`;
+
 export const SaibaMaisLocais = styled.div`
     width: 200px;
     height: fit-content;
